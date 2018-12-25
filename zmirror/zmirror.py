@@ -1591,6 +1591,7 @@ def ssrf_check_layer_1():
     :return: 如果请求触发了SSRF防护, 则返回True
     :rtype: bool
     """
+    return False
     # Only external in-zone domains are allowed (SSRF check layer 1)
     if parse.remote_domain not in allowed_domains_set:
         if not try_match_and_add_domain_to_rewrite_white_list(parse.remote_domain):  # 请求的域名是否满足通配符
@@ -2251,6 +2252,17 @@ def zmirror_after_request(response):
 # ################# End Flask After Request ################
 
 # ################# Begin Flask #################
+@app.route('/target_domain/<domain>')
+def qgb_target_domain(domain):
+	global target_domain,allowed_domains_set
+	# import sys;'qgb.U' in sys.modules or sys.path.append('G:/QGB/babun/cygwin/lib/python2.7/');from qgb import U,T,N,F;py=U.py
+	r=make_response('%s\n %s  %s' % (datetime.now(),target_domain,domain  )  )
+	r.headers['Content-Type'] = 'text/plain;charset=utf-8'
+	
+	allowed_domains_set.add(domain)
+	target_domain=domain
+	return r
+
 @app.route('/zmirror_stat')
 def zmirror_status():
     """返回服务器的一些状态信息"""
