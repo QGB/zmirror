@@ -16,7 +16,7 @@
 
 # ############## Local Domain Settings ##############
 my_host_name = 'okfw.net'
-my_host_scheme = 'http://'
+my_host_scheme = 'https://'
 my_host_port = None  # None????????, ??????????, ?? 81
 
 # ############## Target Domain Settings ##############
