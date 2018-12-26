@@ -1743,12 +1743,16 @@ def extract_url_path_and_query(full_url=None, no_query=False):
 def send_request(url, method='GET', headers=None, param_get=None, data=None):
     """实际发送请求到目标服务器, 对于重定向, 原样返回给用户
     被request_remote_site_and_parse()调用"""
+    global target_domain,allowed_domains_set
+    ################
     final_hostname = urlsplit(url).netloc
     dbgprint('FinalRequestUrl', url, 'FinalHostname', final_hostname)
     # Only external in-zone domains are allowed (SSRF check layer 2)
     if final_hostname not in allowed_domains_set and not developer_temporary_disable_ssrf_prevention:
         raise ConnectionAbortedError('Trying to access an OUT-OF-ZONE domain(SSRF Layer 2):', final_hostname)
-
+    if developer_temporary_disable_ssrf_prevention:
+        allowed_domains_set.add(final_hostname)
+        target_domain=final_hostname
     # set zero data to None instead of b''
     if not data:
         data = None
