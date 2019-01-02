@@ -52,6 +52,6 @@ developer_temporary_disable_ssrf_prevention = True
 human_ip_verification_enabled = True
 must_verify_cookies = True
 human_ip_verification_questions = (
-    ('请输入密码：', 'RunK#2018', '123'),
+    ('请输入密码：', 'RunK#2018', '区分大小写'),
 )
 human_ip_verification_identity_record = ()
