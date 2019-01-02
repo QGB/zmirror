@@ -48,3 +48,6 @@ requests_proxies = dict(
 
 
 developer_temporary_disable_ssrf_prevention = True
+
+human_ip_verification_questions = (
+    ('请输入密码：', 'RunK#2018', '123'),

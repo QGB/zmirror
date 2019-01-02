@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4d802c4-edb9-4070-aad2-018c83c921e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/zmirror/zmirror.py" beforeDir="false" afterPath="$PROJECT_DIR$/zmirror/zmirror.py" afterDir="false" />
-    </list>
+    <list default="true" id="f4d802c4-edb9-4070-aad2-018c83c921e1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="1754" column="32" selection-start-line="1754" selection-start-column="32" selection-end-line="1754" selection-end-column="32" />
+            <state relative-caret-position="-1389">
+              <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -28,6 +26,8 @@
       <find>temp</find>
       <find>tempor</find>
       <find>developer_temporary_disable_ssrf_prevention</find>
+      <find>log</find>
+      <find>logg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,8 +113,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="1754" column="32" selection-start-line="1754" selection-start-column="32" selection-end-line="1754" selection-end-column="32" />
+        <state relative-caret-position="-1389">
+          <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
         </state>
       </provider>
     </entry>
