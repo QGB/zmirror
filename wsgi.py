@@ -23,13 +23,14 @@ def main():
 		my_host_port = 80
 		
 	my_host_port=10000
-	qgb=os.getenv('QGB')
-	key=qgb+r'!RK\okfw.net\privkey.pem'
-	crt=qgb+r'!RK\okfw.net\cert.pem'
+	
 	if sys.platform=='linux':
 		key='/etc/letsencrypt/live/okfw.net/privkey.pem'
 		crt='/etc/letsencrypt/live/okfw.net/cert.pem'
 	if sys.platform=='win32':
+		qgb=os.getenv('QGB') or 'E:/qgb/'
+		key=qgb+r'!RK\okfw.net\privkey.pem'
+		crt=qgb+r'!RK\okfw.net\cert.pem'
 		my_host_port+=1
 	try:
 		application.run(
