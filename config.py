@@ -31,7 +31,7 @@ external_domains = [
 ]
 
 # ????????HTTPS
-force_https_domains = 'ALL'
+# force_https_domains = 'ALL'
 
 # ????????
 enable_automatic_domains_whitelist = True
@@ -49,9 +49,33 @@ requests_proxies = dict(
 
 developer_temporary_disable_ssrf_prevention = True
 
-human_ip_verification_enabled = True
-must_verify_cookies = True
-human_ip_verification_questions = (
-    ('请输入密码：', 'RunK#2018', '区分大小写'),
-)
-human_ip_verification_identity_record = ()
+# human_ip_verification_enabled = True
+# must_verify_cookies = True
+# human_ip_verification_questions = (
+    # ('请输入密码：', 'RunK#2018', '区分大小写'),
+# )
+# human_ip_verification_identity_record = ()
+
+
+custom_text_rewriter_enable=True
+
+# custom_inject_content = {
+    # "head_first": [
+        # {
+            # "content": r"""<script>
+# setTimeout(function(){
+	
+# ds=document.querySelectorAll ('img[src*="files.yqt365.com//logo/"]')
+# for(i of ds){
+	# i.setAttribute('src','https://okfw.net/mfyq_logo')
+	# console.log(i)
+# }
+
+# },999)
+# alert(document.body)
+
+# </script>""",
+            # "url_regex": r"^0731.mfyq.com.cn",
+        # },
+    # ]
+# }

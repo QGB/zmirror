@@ -23,8 +23,9 @@ def main():
 		my_host_port = 80
 		
 	my_host_port=443	
-	key=r'G:\QGB\!RK\okfw.net\privkey.pem'
-	crt=r'G:\QGB\!RK\okfw.net\cert.pem'
+	qgb=os.getenv('QGB')
+	key=qgb+r'!RK\okfw.net\privkey.pem'
+	crt=qgb+r'!RK\okfw.net\cert.pem'
 	import platform
 	if platform.system().lower()=='linux':
 		key='/etc/letsencrypt/live/okfw.net/privkey.pem'
