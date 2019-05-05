@@ -1,5 +1,9 @@
 import re,sys
-'qgb.U' in sys.modules or sys.path.append('E:/QGB/babun/cygwin/bin')
+if sys.platform=='win32':
+	'qgb.U' in sys.modules or sys.path.append('E:/QGB/babun/cygwin/bin')
+if sys.platform=='linux':
+	'qgb.U' in sys.modules or sys.path.append('/home/qgb')
+	
 from qgb import U,T,F
 from zmirror.zmirror import app
 
