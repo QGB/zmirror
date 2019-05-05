@@ -22,15 +22,15 @@ def main():
 	if my_host_port is None:
 		my_host_port = 80
 		
-	my_host_port=443	
+	my_host_port=10000
 	qgb=os.getenv('QGB')
 	key=qgb+r'!RK\okfw.net\privkey.pem'
 	crt=qgb+r'!RK\okfw.net\cert.pem'
-	import platform
-	if platform.system().lower()=='linux':
+	if sys.platform=='linux':
 		key='/etc/letsencrypt/live/okfw.net/privkey.pem'
 		crt='/etc/letsencrypt/live/okfw.net/cert.pem'
-		
+	if sys.platform=='win32':
+		my_host_port+=1
 	try:
 		application.run(
 			port=my_host_port,
@@ -49,7 +49,7 @@ def main():
 			debug=built_in_server_debug,  # 默认是开启debug模式的
 			# 默认只允许本机访问, 如果你希望让外网访问, 请根据上面的注释修改配置文件
 			host='0.0.0.0',
-			ssl_context=(crt,key),
+			# ssl_context=(crt,key),
 			**built_in_server_extra_params  # extra params
 		)
 	except OSError as e:

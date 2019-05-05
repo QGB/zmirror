@@ -2539,13 +2539,6 @@ This site: {my_domain}
 		   my_domain=my_host_name),
 					content_type='text/plain')
 
-@app.route('/mfyq_logo')
-def mfyq_logo():
-	from flask import send_file
-	spLogo='/mifengyuqing/static/logo.png'
-	if sys.platform=='win32':spLogo='E:/QGB/!RK'+spLogo
-	if sys.platform=='linux':spLogo='/home/qgb'+spLogo
-	return send_file(spLogo, mimetype='image/gif')
 # ################# End Flask #################
 
 # ################# Begin Post (auto)Exec Section #################
