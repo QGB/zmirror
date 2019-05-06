@@ -101,12 +101,12 @@ def custom_response_text_rewriter(raw_text, content_mime, remote_url):
             <!-- END TOP NAVIGATION MENU -->
         </div>
     </div>
-  <script type="text/javascript" src="jquery-3.3.1.min.js"></script> 
+ 
     <script type="text/javascript">
-        # alert(2333)
-        $('#summaryTotal').html(Math.floor(Math.random()*10));
-        $('#summaryMgTotal').html(Math.floor(Math.random()*10));
-        $('#summaryWbTotal').html(Math.floor(Math.random()*10));
+        document.querySelector('#summaryTotal').innerText=Math.floor(Math.random()*10)
+        document.querySelector('#summaryMgTotal').innerText=Math.floor(Math.random()*10)
+        document.querySelector('#summaryWbTotal').innerText=Math.floor(Math.random()*10)
+		
     </script>
 
 </ul>''')
