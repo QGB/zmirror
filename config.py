@@ -2,7 +2,7 @@
 import sys
 
 # ############## Local Domain Settings ##############
-my_host_name = 'okfw.net'
+my_host_name = 'mf.yq10000.cn'  #'okfw.net'
 my_host_scheme = 'http://'
 my_host_port = 10000  # None????????, ??????????, ?? 81
 if sys.platform=='win32':my_host_port+=1
