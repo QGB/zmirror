@@ -1,0 +1,590 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+  
+
+
+
+
+  
+
+
+<TITLE>蜜蜂舆情云平台</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<link rel="shortcut icon" href="https://files.yqt365.com//logo/2018031415394626.png" />
+
+<script type='text/javascript' src='/dwr/interface/LoginDwr.js?v=1556621256795'></script>
+<script type='text/javascript' src='/dwr/engine.js?v=1556621256795'></script>
+<script type='text/javascript' src='https://cdn-files.yqt365.com/js/jquery-1.10.2.min.js?v=1556621256795'></script>
+<script src="https://cdn-files.yqt365.com/js/Introduction/web/owlCarousel/owl.carousel.min.js?v=1556621256795"></script>
+<script type='text/javascript' src='https://cdn-files.yqt365.com/js/yqt/banner.js?v=1556621256795'></script>
+
+
+<link href="https://cdn-files.yqt365.com/css/cssvr2/yqt/yqt-login.css?v=1556621256795" rel="stylesheet" type="text/css" />
+<link href="https://cdn-files.yqt365.com/css/cssvr2/fonts-yqticon.css?v=1556621256795" rel="stylesheet" type="text/css" />
+<link href="https://cdn-files.yqt365.com/css/Introduction/web/owlCarousel/owl.carousel.min.css?v=1556621256795" rel="stylesheet" type="text/css">
+<link href="https://cdn-files.yqt365.com/css/Introduction/web/owlCarousel/owl.theme.default.min.css?v=1556621256795" rel="stylesheet" type="text/css">
+<link href="https://cdn-files.yqt365.com/css/Introduction/web/owlCarousel/owl.theme.green.min.css?v=1556621256795" rel="stylesheet" type="text/css">
+<style type="text/css">
+.login .login_forg a {
+	margin-left: 20px;
+}
+
+.errorMessage li span {
+	color: red;
+	margin-left: 20px;
+}
+
+#homepic .banner_bg {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+</style>
+<script type="text/javascript">
+    var actionBase='';
+    var njxBasePath='';
+    var njxImgSrc ='';
+
+ 
+</script>
+<script>
+	$(function() {
+		  $('.owl-carousel').owlCarousel({
+	            items: 1,
+	            loop: true,
+	            autoplay: false,
+	            animateIn: 'fadeIn',
+	            animateOut: 'fadeOut',
+	            dots: true
+	        }); 
+	})
+	//var bConnect=0;//Ukey服务连接状态
+	//loadUk();//加载ukey服务
+	
+	var isCheckVode = false;
+	var isCheckLoginUkey = false;
+	
+	function logoutcheck(){
+		var locheck=document.getElementById("username").value;
+
+		checkUser(locheck);}
+
+
+	var isValid = false;
+	
+	var oldInputName="";
+	function checkUser(username) {
+
+		var accountPattern=/^[a-zA-Z]{1}([a-zA-Z0-9]){5,16}$/;
+		username = $.trim(username);
+
+		if (username.length>0&&oldInputName!=username){
+			if (username.length>16)
+			{
+			document.getElementById('errMsg').innerHTML ='用户名不符合规范!';
+
+			return;
+			}
+			if (username.indexOf("'")>=0 || username.indexOf(" ")>=0 ||username.indexOf("=")>=0||username.indexOf("(")>=0||username.indexOf(")")>=0||username.indexOf(".")>=0){
+				document.getElementById('errMsg').innerHTML ='用户名不符合规范!';
+
+				return;
+			}
+
+ 
+
+			isValid=true;
+			if (isValid==true)
+			 {
+				oldInputName=username;
+				document.getElementById('errMsg').innerHTML ='';
+				LoginDwr.checkUserNameV01(username,'yqt', callCheckUser);
+			 }
+		}	
+		
+	}
+
+	var callCheckUser = function callBack(data) {
+		isCheckLoginUkey =false;
+		if (data == "1"||data == "10") {
+			//需要验证码
+			isCheckVode = true;
+			$("#trYZ").show();
+			$("#ljf_getVcode").attr("onclick","ischeckUKey("+data+")");
+			
+			if(data == "10"){
+				isCheckLoginUkey =true;//登陆时需要校验ukey
+			}
+		}
+		else if (data == "5") {
+			//需要验证码
+			isCheckVode = false;
+			$("#trYZ").hide();
+
+			document.getElementById('errMsg').innerHTML ='此账号登陆过于频繁,请稍后再试!';
+		} 
+		
+		else {
+			isCheckVode = false;
+			$("#trYZ").hide();
+		}
+	}
+	
+	//加载js文件
+	function require(file){
+	    var script = document.getElementsByTagName("script")[0];
+	    var newjs = document.createElement("script");
+	    /* newjs.onload = function(){
+	        callback();
+	    };*/
+	    newjs.src = file;
+	    script.parentNode.insertBefore(newjs,script);
+	}
+	
+	//验证码60秒到计时
+	  var wait=60;
+	  function time(o,data) {  
+	        if (wait == 0) {  
+	        	o.attr("onclick","ischeckUKey("+data+");");
+	            o.html("获取验证码");  
+	            wait = 60;  
+	        } else {  
+	            o.removeAttr("onclick");
+	            o.html(wait +"秒");  
+	            wait--;  
+	            setTimeout(function() {  
+	                time(o,data)  
+	            },  
+	            1000)  
+	        }  
+	    }  
+	  
+	//判断是否需要uk校验
+	  function ischeckUKey(data){
+		  getCode(data);//获取验证码
+	  	/* if(data==10){
+	  		isJoin_UKey();//检测uk服务是否已经安装、检测uk是否插入
+	  	}else{
+	  		getCode(data);//获取验证码
+	  	} */
+	  }
+	
+	//新版获取验证码
+	function getCode(data){
+		var username = document.getElementById("username").value;
+		if($.trim(username) == ""){
+			alert("请输入用户名！")
+			return false;
+		}
+		time($("#ljf_getVcode"),data);
+		LoginDwr.getRandom(username,1, callGetRand);
+	}
+
+	var count = 0;
+	function getRand() {
+		if (count == 1) {
+			alert("请稍后获得验证码!");
+			return;
+		}
+		var username = document.getElementById("username").value;
+
+		LoginDwr.getRand(username, callGetRand);
+		var getVcodeEl = document.getElementById("getVcode");
+		var secs = 60;
+		//	getVcodeEl.disabled = true;
+		count = 1;
+		for ( var i = 1; i <= secs; i++) {
+			window.setTimeout("refreshBtn(" + (secs + 1 - i) + ")", i * 2000);
+		}
+	}
+
+	function refreshBtn(sec) {
+		var getVcodeEl = document.getElementById("getVcode");
+		getVcodeEl.value = "(" + sec + ")验证码";
+		if (sec == 1) {
+			//getVcodeEl.disabled = false;
+			count = 0;
+			getVcodeEl.value = "获取验证码";
+		}
+	}
+
+	var callGetRand = function callBack(data) {
+		if (data == "0") {
+			//需要验证码
+			alert("请稍后获得验证码!");
+		} else if (data == "1") {
+			alert("验证码下发成功!");
+			//成功下发
+		} else if (data == "2") {
+			alert("验证码下发失败,请重新获得!");
+			//下发失败
+		} else if (data == "5") {
+			alert("当天下发50次短信验证码，已用完！");
+		}else if (data == "6") {
+			alert("当天下发20次短信验证码，已用完！");
+		}
+
+	}
+
+	var callGetTempw = function callBack(data) {
+		alert("临时密码已下发到你的邮箱和手机!");
+		/* if (data == "0") {
+			//需要验证码
+			alert("用户不存在!");
+		} else if (data == "1") {
+			//成功下发
+			alert("此用户已删除!");
+		} else if (data == "2") {
+			//成功下发
+			alert("此用户已暂停!");
+		} else if (data == "3") {
+			//成功下发
+			alert("此用户已过期!");
+		} else if (data == "4") {
+			//成功下发
+			alert("临时密码已下发到你的邮箱和手机!");
+		} else if (data == "5") {
+			//下发失败
+			alert("临时密码下发失败,请重新获得!");
+		} */
+	}
+
+	function GetRandom(n) {
+
+		GetRandomn = Math.floor(Math.random() * n + 1);
+		return GetRandomn;
+	}
+
+	function getTempRand() {
+		var username = document.getElementById("username").value;
+		if (username == "") {
+			alert("请输入用户名!");
+		} else {
+
+			LoginDwr.getTempPassword(username, GetRandom(30), callGetTempw);
+
+		}
+
+	}
+	function userLogin() {
+       document.getElementById('errMsg').innerHTML = ""; 
+       
+   	
+       var accountPattern=/^[a-zA-Z]{1}([a-zA-Z0-9]){5,16}$/;
+
+		
+		var username =  $.trim($('#username').val());
+		 
+	 
+
+		if (username.length==0 ||username.length>16)
+		{
+			document.getElementById('errMsg').innerHTML ='用户名不符合规范!';
+
+			return;
+		}
+		if (username.indexOf("'")>=0 || username.indexOf(" ")>=0 ||username.indexOf("=")>=0||username.indexOf("(")>=0||username.indexOf(")")>=0||username.indexOf(".")>=0){
+			document.getElementById('errMsg').innerHTML ='用户名不符合规范!';
+
+			return;
+		}
+
+ 
+ 
+		
+		var passwordE = document.getElementById("password");
+		if ($.trim(passwordE.value)==""){
+			document.getElementById('errMsg').innerHTML ="<ul class='errorMessage'><li><span>请输入密码!</span></li></ul>";
+			passwordE.focus();
+			return false;
+		}
+		
+        var vcode="";
+		if (isCheckVode){
+			var	vcodeE = document.getElementById("vcode");
+			if ($.trim(vcodeE.value)==""){
+				document.getElementById('errMsg').innerHTML ="<ul class='errorMessage'><li><span>请输入验证码!</span></li></ul>";
+				vcodeE.focus();
+				return false;
+			}
+            vcode = vcodeE.value;
+		}
+		
+        $.ajax({
+				type:"post",
+                url:'ajaxCheckLogin.action',
+                data:{'username':username,'password':passwordE.value,'vcode':vcode},			
+                async:false,
+                success: function(data){
+                    if (data!=""){
+                        document.getElementById('errMsg').innerHTML ="<ul class='errorMessage'><li><span>"+data+"</span></li></ul>";
+                    }else{
+                        F.action = "login.action";
+                         if(isCheckLoginUkey){
+                        	/* ukLogin(username); */ 
+                        	alert("请从正确的uk登录通道登录!");
+                        }else{
+                        	F.submit();
+                        }
+                    }
+                }
+        }); 
+	}
+
+	function isIE() { //ie?  
+	    if (!!window.ActiveXObject || "ActiveXObject" in window)  
+	        return true;  
+	    else  
+	        return false;  
+	}  
+	
+    $(function(){
+        /* $("#getVcode").click(function() {
+			getRand();
+        }); */
+        $("#tempPWD").click(function() {
+        	
+        	var accountPattern=/^[a-zA-Z]{1}([a-zA-Z0-9]){5,16}$/;
+				var username =  $.trim($('#username').val());
+
+				if (username.length==0 ||username.length>16)
+				{
+					document.getElementById('errMsg').innerHTML ='用户名不符合规范!';
+					alert('用户名不符合规范!');
+					return;
+				}
+				
+				if (username.indexOf("'")>=0 || username.indexOf(" ")>=0 ||username.indexOf("=")>=0||username.indexOf("(")>=0||username.indexOf(")")>=0||username.indexOf(".")>=0){
+					document.getElementById('errMsg').innerHTML ='用户名不符合规范!';
+					alert('用户名不符合规范!');
+					return;
+				}
+			 $.ajax({
+					type:"post",
+	                url:'checkTempPasswordCount.action',
+	                data:{'username':username},
+	                async:false,			
+	                success: function(data){
+	                	console.log("data = "+data);
+	                	if(data == "true"){
+	                		getTempRand();
+	                	}else{
+	                		alert("今日临时密码下发次数已用完。");
+	                	}
+	                }
+			 });
+			
+			
+		});
+    });
+    
+    function goDownload(){
+    	window.open("http://d.yqt365.com","_blank");
+    }
+    
+	var bs = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {
+                    windowsPhone: u.indexOf('IEMobile') > -1,
+                    trident: u.indexOf('Trident') > -1,
+                    presto: u.indexOf('Presto') > -1,
+                    webKit: u.indexOf('AppleWebKit') > -1,
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') === -1,
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/) || !!u.match(/IEMobile/),
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                    android: u.indexOf('Android') > -1 || u.indexOf('UCBrowser') > -1,
+                    iPhone: u.indexOf('iPhone') > -1,
+                    iPad: u.indexOf('iPad') > -1,
+                    webApp: u.indexOf('Safari') === -1
+                };
+            } (),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        };
+        if (bs.versions.mobile) {
+            if (bs.versions.android || bs.versions.iPhone || bs.versions.iPad || bs.versions.windowsPhone) {
+            	if(njxImgSrc == "sjdp-beta.yqt365.com" || njxImgSrc == "sjdp.yqt365.com" ){
+            		location.href ="/tsLogon.action";
+            	}else{
+            		location.href ="/wapLogon.action";
+            	}
+            }
+        } 
+</script>
+</head>
+<body onload="logoutcheck()">
+
+	<div class="infor_container">
+		<!--顶部开始-->
+		<div class="infor_top">
+			<div class="infor_topcontainer">
+				<div class="">
+					
+						
+						
+							<img src="https://files.yqt365.com//logo/20170803092821201.jpg" style="height: 44px;margin-top: 6px;margin-bottom: 3px;">
+						
+					
+					
+				</div>
+				<div class="infor_topright animated zoomIn">
+					<ul class="infor_trtext">
+						<li>欢迎您来到舆情系统!</li>
+						<!--    <li  class="download" style="border: 1px"><p><a href="javascript:goDownload();" >客户端下载</a></p></li>  -->
+
+					</ul>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</div>
+
+		<form method=post name=F runat="server">
+			<!--登录框 start-->
+			<div class="loginBox animated zoomIn">
+				<div class="login">
+					<h1>登录舆情系统</h1>
+					<div class="infor_rig_colum">
+						<div class="infor_new_inha" style="margin-bottom: 20px;">
+							<i class="fa-login-cstm-user"></i>
+							<input onblur=checkUser(this.value) id=username
+								onfocus=checkUser(this.value) name=username autocomplete="off"
+								class="inforText infor_new_sru" type="text" placeholder="输入用户名"
+								value="migang888">
+
+						</div>
+						<div class="infor_new_inha" style="margin-bottom: 20px;">
+							<i class="fa-login-cstm-password"></i>
+							<input class="inforText infor_new_pass" type="text"
+								onFocus="this.type='password'" name="password" id="password"
+								autocomplete="off" placeholder="输入密码">
+						</div>
+						<script type="text/javascript">
+									document.getElementById("password").value="";
+									if (navigator.userAgent.indexOf("MSIE") != -1) {
+										if(document.getElementById("password_parent")){
+											document.getElementById("password_parent").innerHTML = '<input id="password" name="password" class="inputText"  type="password"  autocomplete="off" placeholder="输入密码"/>';
+										}
+									} 
+								</script>
+								<div id="trYZ" class="rel" style="display: none;">
+									<span class="input2 yanzhengma wy_yzm"><i class="fa-cstm-vcode"></i>
+									<input id="vcode" name="vcode" class="inforText vcode-input" type="text"
+											placeholder="输入验证码"/> </span>
+										<a href="javascript:void(0);" onclick="getCode();" id="ljf_getVcode">获取验证码</a> 
+									
+								 </div>
+								<input type="button" value="立即登录" class="infor_new_liji" onclick="userLogin();">
+								<div class="login_forg wy_forget">
+									<a href="javascript:void(0);" id="tempPWD" class="forgetpassword"><i class="fa-login-cstm-forget"></i>忘记密码</a>
+									<span class="left" id="errMsg"></span>
+								</div>
+								<p class="login_tips">
+									 温馨提示：建议使用火狐或者最新版本的360浏览器访问系统！
+								</p>
+
+					</div>
+				</div>
+				<div class="login-bk">
+					<img src="https://cdn-files.yqt365.com/images/imagesvr2/bgSjTop.jpg">
+				</div>
+		 
+			</div>
+
+
+		</form>
+	</div>
+	<!--登录框 end-->
+
+	<!--广告图部分代码 start-->
+	<div id="bannerBox" class="rel">
+		<div class="owl-carousel  owl-theme">
+                <div class="banner-img-wrapper p-r">
+                    <img src=" http://files.yqt365.com//logo/20170808130441699.jpg" alt="" class="img-width">
+                </div>
+                <div class="banner-img-wrapper p-r">
+                   <img src=" http://files.yqt365.com//logo/20170808130521463.jpg" alt="" class="img-width">
+                </div>
+                <div class="banner-img-wrapper p-r">
+                     <img src=" http://files.yqt365.com//logo/2017080813051647.jpg" alt="" class="img-width">
+                </div>
+                 <div class="banner-img-wrapper p-r">
+                     <img src=" http://files.yqt365.com//logo/20170808130526268.jpg" alt="" class="img-width">
+                </div>
+        </div>
+		<!-- <div id="container">
+			<div id="banner">
+				<ul class="banner_indicator">
+					<li class="indicator"></li>
+					<li class=""></li>
+					<li class=""></li>
+					<li class=""></li>
+				</ul>
+
+			</div>
+		</div> -->
+
+	</div>
+	<!--广告图部分代码 end-->
+	
+	<!--底部-->
+ 
+	
+	<div class="info_bottom">
+		<ul class="card-area">
+			<li class="card-item">
+				<div class="card">
+					<div class="icon-line"><span class="fa-info-gather"></span></div>
+					<h3>信息采集</h3>
+					<p class="desc-text">创新的互联网信息采集、存储、处理技术，大大降低了使用舆情服务的成本。</p>	
+				</div>
+			</li>
+			<li class="card-item">
+				<div class="card">
+					<div class="icon-line"><span class="fa-info-monitor"></span></div>
+					<h3>舆情监测</h3>
+					<p class="desc-text">覆盖全网信息：国内外重要网站、论坛、微博、微信公众号、贴吧、博客等互联网开放平台的相关信息，确保有效舆情无一遗漏。</p>	
+				</div>
+			</li>
+			<li class="card-item">
+				<div class="card">
+					<div class="icon-line"><span class="fa-info-calculate"></span></div>
+					<h3>舆情分析</h3>
+					<p class="desc-text">通过中文智能分词、自然语言处理、正负面研判等大数据处理技术对抓取到的信息进行处理。</p>	
+				</div>
+			</li>
+			<li class="card-item">
+				<div class="card">
+					<div class="icon-line"><span class="fa-info-show"></span></div>
+					<h3>舆情展示</h3>
+					<p class="desc-text">舆情信息通过WEB、APP客户端等形式展示给用户。</p>	
+				</div>
+			</li>
+			<li class="card-item">
+				<div class="card">
+					<div class="icon-line"><span class="fa-info-reader"></span></div>
+					<h3>舆情简报</h3>
+					<p class="desc-text">为用户提供方便、快捷的舆情简报制作工具。</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="copyright">
+		<div class="copyright-wrapper"> &copy; Copyright 长沙润科 湘ICP备16015646号-1</div>
+	</div>
+	
+	<script>
+		// effect
+		/* $(function() {
+			$("info_bottom ul li").hover("hover","li",function() {
+				console.log("yayay")
+			})
+		}) */
+	</script>
+
+</body>
+</html>

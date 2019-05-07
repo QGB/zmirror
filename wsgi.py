@@ -27,11 +27,14 @@ def main():
 	if sys.platform=='linux':
 		key='/etc/letsencrypt/live/okfw.net/privkey.pem'
 		crt='/etc/letsencrypt/live/okfw.net/cert.pem'
+		built_in_server_host='0.0.0.0'
+		built_in_server_debug=False
 	if sys.platform=='win32':
 		qgb=os.getenv('QGB') or 'E:/qgb/'
 		key=qgb+r'!RK\okfw.net\privkey.pem'
 		crt=qgb+r'!RK\okfw.net\cert.pem'
 		my_host_port+=1
+		built_in_server_host='192.168.1.111'
 	try:
 		application.run(
 			port=my_host_port,
@@ -49,7 +52,7 @@ def main():
 			# !!警告!! 无论如何都不要修改本文件, 否则程序将无法通过 git pull 来升级
 			debug=built_in_server_debug,  # 默认是开启debug模式的
 			# 默认只允许本机访问, 如果你希望让外网访问, 请根据上面的注释修改配置文件
-			host='0.0.0.0',
+			host=built_in_server_host ,
 			# ssl_context=(crt,key),
 			**built_in_server_extra_params  # extra params
 		)

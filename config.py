@@ -5,16 +5,18 @@ import sys
 my_host_name = 'mf.yq10000.cn'  #'okfw.net'
 my_host_scheme = 'http://'
 my_host_port = 10000  # None????????, ??????????, ?? 81
+# built_in_server_extra_params={}	
+
 if sys.platform=='win32':my_host_port+=1
 
 
 # ############## Target Domain Settings ##############
-target_domain = '0731.mfyq.com.cn'
+target_domain =  '0731.mfyq.com.cn'
 target_scheme = 'http://'
+# target_domain =  'www.yqt365.com'  #'0731.mfyq.com.cn'
+# target_scheme = 'https://'
 
-# ???????????? `enable_automatic_domains_whitelist` ?????, ??????????????
-# ??????????, ??????????????????.
-# ????(??????)?????????
+
 external_domains = [
    "0731.mfyq.com.cn",
 ]
@@ -38,12 +40,12 @@ requests_proxies = dict(
 
 developer_temporary_disable_ssrf_prevention = True
 
-# human_ip_verification_enabled = True
-# must_verify_cookies = True
-# human_ip_verification_questions = (
-    # ('请输入密码：', 'RunK#2018', '区分大小写'),
-# )
-# human_ip_verification_identity_record = ()
+# # human_ip_verification_enabled = True
+# # must_verify_cookies = True
+# # human_ip_verification_questions = (
+# # ('请输入密码：', 'RunK#2018', '区分大小写'),
+# # )
+# # human_ip_verification_identity_record = ()
 
 
 custom_text_rewriter_enable=True

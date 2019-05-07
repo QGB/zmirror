@@ -3,6 +3,7 @@ Thumbs.db
 __pycache__
 *.pyc
 *.dill
+*.dump
 
 uwsgi.pid
 test.log
