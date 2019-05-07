@@ -38,5 +38,5 @@ def custom_response_text_rewriter(raw_text, content_mime, remote_url):
         # 
     if remote_url.startswith('http://0731.mfyq.com.cn/log'):
         raw_text=raw_text.replace('温馨提示：建议使用火狐或者最新版本的360浏览器访问系统','233333333333')
-        raw_text=F.read('./static/login.html')
+        # raw_text=F.read('./static/login.html')
     return raw_text
