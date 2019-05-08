@@ -1,0 +1,32 @@
+.outer{
+    border: 1px solid #b9def0;
+    background-color: wheat;
+}
+.text_add{
+    width: 100%;
+    height: 800px;
+    background-color: silver;
+}
+.left_text{
+    width: 10%;
+    height: 800px;
+    background-color: #9d9d9d;
+    float: left;
+      }
+
+.text_color{
+    width: 80%;
+    height: 800px;
+    background-color: white;
+    float: left;
+
+}
+
+
+off_text{
+    width: 10%;
+    height: 800px;
+    background-color: #9d9d9d;
+    float: left;
+}
+.highlight{font-weight:bold;color:red;}

@@ -1,0 +1,27 @@
+*{margin: 0px;padding: 0px;}
+li{list-style: none;}
+body{background-color: #172B45;}
+#container{background-color:#fff;width: 750px;height:100%;margin: 0 auto;overflow: auto;margin-top: 10px;}
+.YJmail .mail_heard{border-bottom: 1px solid #ddd;}
+.YJmail .mail_Parameter {
+    line-height: 22px;
+    font-size: 1.1em;
+    margin: 0px;
+    padding: 10px 15px;
+}
+.mail_Parameter p{font-size: 14px;}
+em{font-style: normal;color:#e02222;}
+.time{color: red;}
+.line{border-bottom: 1px dotted #ddd;}
+.mwblist li{border-bottom:1px dotted #ddd; padding: 10px 15px;}
+.m_l{float: left;}
+.label{float: right;}
+.m_l img{border-radius: 50%;}
+.m_r h1{font-size: 20px;}
+.mr-buttom{font-size: 13px;}
+.mr-buttom span{color: rgba(0, 0, 0, .4);}
+.m_l{padding-right: 10px;}
+li:hover{background-color: #efefef;}
+.mwbHead{margin-bottom: 10px;}
+.txt{font-size: 14px;margin-top: 8px;color: rgba(0, 0, 0, .6);}
+.label_mg{width: 30px;font-size: 12px;color: red;border: 1px solid red;border-radius: 3px;text-align:center;}

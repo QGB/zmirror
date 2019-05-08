@@ -1,0 +1,84 @@
+body{
+	background-color: #f0f0f0!important;
+}
+.nav-bar span a:link,
+.nav-bar span a:visited,
+.nav-bar span a:hover,
+.nav-bar span a:active{
+ color: #fff!important;
+}
+.dtcontainer{
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 100px;
+    background-color: #fff;
+}
+.dtpadding{padding: 10px 100px;}
+.person-mesag{
+   height: 130px;
+   margin-top: 30px;
+   border-bottom: 1px solid #ddd;
+   padding: 0 30px;
+}
+.person-mesag img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%!important;
+	float: left;
+}
+.person-mesag .dtname{
+	float: left;
+	color: #000;
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+.dtname span:first-child{font-size: 14px;font-weight: bold;}
+.dtname span i,.dtname span b{
+	font-size: 12px;
+	color: #8e8e8e;
+	font-style: normal;
+	font-weight: normal;
+}
+.dtcontent{
+	height: auto;
+	padding: 0 30px;
+    margin-top: 30px;
+    }
+.dtuser,.dthref{
+	width: 50%!important;
+	float: left;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+.dtuser{color: #8e8e8e;}
+.dthref{text-align: right}
+.dthref a{padding-right: 10px;}
+label{font-style: normal;font-weight: normal;}
+.keywords{text-align: left;}
+.keywords a:link,.keywords a:visited,.keywords a:hover,.keywords a:active{color: red;}
+.keywords label{color: #8e8e8e;}
+.clear{clear: both;}
+.dttext{margin-top: 25px;font-size: 16px;line-height: 30px;}
+.dtbottom{
+	min-height: 280px;
+	background-color: #f5f5f5;
+    margin-top: 20px;
+	}
+.dtbottom p{
+ 	width: 50%;
+    float: left;
+}
+.dtbottom .alignr{
+	text-align: right!important;
+}
+.dtbottom p a{padding-right: 10px;}
+.btcontent{
+  	width: 100%!important;
+    margin: 30px 0;
+    text-indent: 10px;
+    line-height: 28px;
+    font-size: 14px;
+}
+.username{display: inline-block;}
+.key{color: red;}
+    #copystyle{border: none;color: #1a9bfc!important;}

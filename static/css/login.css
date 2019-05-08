@@ -1,0 +1,318 @@
+.jumbotron {
+    /* background: url("/static/img/3.png") no-repeat;
+    background-size: 100%; */
+    overflow: hidden;
+    padding: 0!important;
+    margin-bottom: 0;
+} 
+*{padding: 0;margin: 0;}
+.form-top-right img{
+    width: 60px;
+    border-radius: 50%;
+}
+.inner-bg{
+    width:800px;
+    padding: 0;
+    margin-left:55%;
+}
+/* .form-top{
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+} */
+.formtop{margin-bottom: 20px;}
+.formtop p{color: #f9b913;margin: 0;}
+.formtop p.chinese{font-size: 20px;font-weight: bold;}
+.formtop p.english{font-size: 12px;height: 12px;line-height: 12px;}
+button.btn{height: 40px;line-height: 40px;background-color: #ff8500;}
+.sr-only{position: relative!important;height: 100%;width: 100%;}
+.logoImg{height: 60px;float: left;}
+.logoImg img{  
+      float: left;
+      height: 45px;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      margin-top: 10px;
+      }
+.infor_trtext li{height: 50px;line-height: 50px;font-size: 20px;color: #ff8500;}
+/* 轮播图样式 */
+#ad{height: 460px;}
+#ad_img{width: 100%;position: absolute;overflow: hidden;}
+li{list-style: none;}
+#ad_img li{
+    display:none;
+    height: 450px;
+}
+#ad_img li img{height: 450px;width: 100%;}
+#ad_num {
+    position: absolute;
+    left: 50%;
+    margin-left: -33px;
+    top: 400px;
+}
+#ad_num li{	border:#FFF solid 1px;	float:left;	margin:0px 5px;	padding:0;height: 12px;width: 12px;border-radius: 50%;}
+.numsover{
+  background-color:#ff8500;
+  color:#F00;
+}
+.lunbo_intro{
+    position: absolute;
+    left: 100px;
+    top: 80px;
+    height: 300px;
+    width: 50%;
+   /* background-color: #4d4d4d; */
+    text-align: left;
+    overflow: hidden;
+}
+.lunbo_intro h2{
+    color: #f9b913;
+    font-weight: 600px;
+    font-size: 40px;
+    text-align: center;
+}
+.lunbo_intro p{
+    color: #fff;
+    font-size: 26px;
+    line-height: 35px;
+}
+.form-bottom{
+    background: url(../img/login_border.png) no-repeat;
+	background-size: 100% 100%;
+}
+.wel{
+    text-align: center;
+    color: #f9b913;
+    font-size: 16px;
+}
+.form-group .zhangh{
+    height: 40px;
+    width: 40px;
+    background-color: #f9b913;
+    position: absolute;
+}
+.form-group .zhangh img{
+   height: 30px;
+   margin-top: 5px;
+   margin-left: 5px;
+}
+.login_tips{
+    font-size: 10px;
+    color: #fff;
+    margin-top: 10px;
+}
+.catch{
+    width: 300px;
+    margin: 0 auto;
+    height: 35px;
+    line-height: 35px;
+    font-size: 20px;
+    color: #fff;
+    background: url(/static/img/cando_bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* .container{  
+  margin-left: 55%;
+  width: 850px;
+  position: absolute;
+
+} */
+
+/* footer */
+
+    /* .login_footer{
+    background-color: #fff;
+    height: 340px;
+    width: 100%;
+    } */
+
+    /* .login_footer img{height: 100%;width: 100%;} */
+    /* .login_footer .footl img{height:280px;float: left; }
+    .login_footer .footr img{  
+        float: right;
+        margin-right: 55px;
+    }  */
+    /* .divContent{
+        padding: 0 5%;
+    }
+    .divContent div{
+        height: 240px;
+        width: 18%;
+        background-color: #fff;
+        float: left;
+        margin-left: 5%;
+        margin-top: 60px;
+        border:1px solid #ff8500;
+        border-radius: 15px;
+    }
+    .divContent div:hover{
+        box-shadow: 0 0 20px #ff8500;
+        transform:scale(1.1);
+    }
+    .intro span{
+        display: block;
+        height: 60px;
+        line-height: 60px;
+    }
+    .intro .fa{
+     color: #ff8500;
+     font-size: 40px;
+    }
+    .intro .title{
+        font-size: 24px;
+        height: 40px;
+        line-height: 40px;
+        color: #000;
+    }
+    .Contenttext{
+        line-height: 25px;
+        padding: 0 10px;
+    }
+    marquee{
+    float: right;
+    margin-right: 40px;
+}  */
+.inform{
+   height: 30px;
+   line-height: 30px;
+   width: 100%;
+   background: url(../img/inform.png) no-repeat;
+   background-size: cover;
+   margin-bottom: 60px;
+}
+.newIform{
+    display: block;
+    float: left;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.inform_nav{float: left;padding-left: 30px;margin: 0;width: 320px;}
+.inform_nav li{font-size: 12px;list-style: disc;color: #ff8500;width: 320px;}
+.inform_nav li a{color: #ff8500;float: left;display: block;margin-right: 50px;}
+
+.introduction{width:70%;height:340px;margin: 0 auto;margin-top: 100px;}
+.introduction li{
+    height: 330px;
+    width: 30%;
+    position: relative;
+    float: left;
+    margin-right:5%;
+    box-shadow: 0px 0px 20px rgba(148, 146, 146, 0.7);
+}
+.introduction li:last-child{margin-right: 0;}
+.introduction li .ling{
+    height: 66px;
+    width: 66px;
+    position: absolute;
+    top: -33px;
+    left: 50%;
+    margin-left: -33px;
+}
+.introduction li .i_title{
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    text-align: center;
+    font-weight: bold;
+}
+.introduction li .bcenter{
+    position: absolute;
+    top:70px;
+    left:0;
+    padding: 0 30%;
+}
+.introduction li .i_content{
+    position: absolute;
+    top: 100px;
+    width: 100%; 
+    padding: 0 35px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden; 
+}
+.introduction .bbottom{
+  position: absolute;
+  bottom:30px;
+  left: 0;
+}
+.introduction .keyword{
+    position: absolute;
+    bottom:20px;
+    width: 100%;
+    text-align: center;
+    color:#ff8500;
+    font-size: 12PX;
+}
+.introduction .i_num{
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: -12px;
+    font-size: 30px;
+}
+/* .friendship_link */
+.friendship_link{
+    height: 360px;
+    margin-top:70px;
+    overflow: hidden;
+}
+.friendship_link p{
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  color: #ff8500;
+}
+.friendship_link .frind_logo{
+   width: 70%;
+   height: 70px;
+   margin-top: 15px;
+   margin-left: 18%;
+   margin-top: 60px;
+}
+.friendship_link .frind_logo li{float: left; width: 14%;margin-right: 2%;   margin-bottom: 20px;}
+.friendship_link .frind_logo li a{
+    display: block;
+    float: left;
+}
+.friendship_link .frind_logo li img{
+   width: 115px;
+   height: 55px;
+   float: left; 
+   margin-left: 10%;
+   border: 1px solid #ebeaea;
+}
+
+/* footer */
+.footer{
+    height:80px ;
+    width: 100%;
+    margin-top:5px;
+    background: url(../img/footer/footer.png);
+    background-size: cover;
+}
+.footer .flocal{
+    height: 35px;
+    width: 60%;
+    padding-top: 3px;
+    margin: 0 auto;
+    border-bottom: 1px solid #fce7e7;
+    overflow: hidden;
+}
+.footer .flocal li{
+    float: left;
+    color: #fce7e7;
+    font-size:12px;
+    margin-right: 20px;
+}
+.footer .fbanquan{padding-top: 8px;margin-bottom: 0;}
+.footer .fbanquan li{
+    color: #fce7e7;
+    font-size: 12px;
+    height: 15px;
+    line-height: 15px;
+}
+.fo_logo img{height: 30px;}
