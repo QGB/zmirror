@@ -40,5 +40,5 @@ def custom_response_text_rewriter(raw_text, content_mime, remote_url):
     if remote_url.startswith('http://0731.mfyq.com.cn/log'):
         # if len(raw_text)>12345:
         if '/dwr/interface/LoginDwr.js?v=' in raw_text:
-            raw_text=gsLogin
+            raw_text=F.read('./static/login.html')#gsLogin
     return raw_text
