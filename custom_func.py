@@ -10,6 +10,7 @@ from zmirror.zmirror import app
 
 
 @app.route('/mfyq_logo')
+@app.route('/extdomains/0731.mfyq.com.cn/mfyq_logo')
 def mfyq_logo():
     from flask import send_file
     spLogo='/mifengyuqing/static/logo.png'
