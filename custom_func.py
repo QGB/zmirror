@@ -30,7 +30,7 @@ gsLogin=F.read('./static/login.html')
 
 def custom_response_text_rewriter(raw_text, content_mime, remote_url):
     # F.dill_dump((raw_text, content_mime, remote_url),file=U.stime()+'  '+T.fileName(remote_url) )
-    raw_text = raw_text.replace('https://files.yqt365.com//logo/20170803092821201.jpg', 'mfyq_logo')
+    raw_text = raw_text.replace('https://files.yqt365.com//logo/20170803092821201.jpg', '/mfyq_logo')
     if 'nav pull-right' in raw_text:
         for k,v in gdraw.items():
             # raw_text=T.regexReplace(raw_text,k,F.read(v))

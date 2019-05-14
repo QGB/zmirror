@@ -21,12 +21,10 @@ external_domains = [
    "0731.mfyq.com.cn",
 ]
 
-# ????????HTTPS
-# force_https_domains = 'ALL'
-
-# ????????
 enable_automatic_domains_whitelist = True
 domains_whitelist_auto_add_glob_list = ()
+
+
 
 # ############## Proxy Settings ##############
 # ?????????????, ????????http??
@@ -36,7 +34,6 @@ requests_proxies = dict(
     http='http://127.0.0.1:8123',
     https='https://127.0.0.1:8123',
 )
-
 
 developer_temporary_disable_ssrf_prevention = True
 
@@ -49,24 +46,11 @@ developer_temporary_disable_ssrf_prevention = True
 
 
 custom_text_rewriter_enable=True
-
-# custom_inject_content = {
-    # "head_first": [
-        # {
-            # "content": r"""<script>
-# setTimeout(function(){
-	
-# ds=document.querySelectorAll ('img[src*="files.yqt365.com//logo/"]')
-# for(i of ds){
-	# i.setAttribute('src','https://okfw.net/mfyq_logo')
-	# console.log(i)
-# }
-
-# },999)
-# alert(document.body)
-
-# </script>""",
-            # "url_regex": r"^0731.mfyq.com.cn",
-        # },
-    # ]
-# }
+# ############## URL Custom Redirect ##############
+url_custom_redirect_enable = True
+url_custom_redirect_list = {
+    # 这是一个方便的设置, 如果你访问 /wiki ,程序会自动重定向到后面这个长长的wiki首页
+    '/goMain.action': '/index.action',
+    '/yqMonitor': '/index.action',
+}
+###################################################
