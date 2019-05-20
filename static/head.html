@@ -3,7 +3,7 @@
         <!-- BEGIN LOGO -->
         <!-- 已自定义logo -->
             
-        <img src="mfyq_logo" style="float: left;width: 220px;">
+        <img src="/mfyq_logo" style="float: left;width: 220px;">
         <div style="
             width: 82%;
             margin-left: 230px;
@@ -81,16 +81,99 @@
                 
                 
 
-
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 
                 <!-- END TOP NAVIGATION MENU -->
             </ul>
         </div>
+
     </div>
 
     
 
+</div>
+<div class="nav2">
+    <div class="navbar hor-menu hidden-phone hidden-tablet">
+        <div class="navbar-inner">
+            <ul class="nav">
+                    <li id="nav_yqjc" class="active">
+                            <a href="javascript:daoHangClick('keywordSearch.action','yqjc')">
+                                舆情监测
+                            </a>
+                        </li>
+                        <li id="nav_sjfx" class="">
+                            <a id="sjfx_count" value="1" data-toggle="dropdown" class="dropdown-toggle js-activated" href="javascript:void(0);" onclick="checkAnalysisCount(1,'mifeng002');">舆情分析
+                                <span class="fa-nav-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                    <li><a value="1" href="javascript:void(0);" onclick="checkAnalysisCount(1,'mifeng002');" class="sjfxCount">
+                                        <i class="fa-nls-global" style="color: rgb(170, 169, 169);"></i> 全网事件分析</a></li>
+                                    <li><a value="2" href="javascript:void(0);" onclick="checkAnalysisCount(2,'mifeng002');" class="sjfxCount">
+                                        <i class="fa-nls-wb" style="color: rgb(170, 169, 169);"></i> 微博事件分析</a></li>  
+                                    <li>
+                                        <a href="javascript:daoHangClick('/i/singleWeiboAnalysis/index.action','sjfx');" class="sjfxCount">
+                                            <i class="fa-nls-wb-godown" style="color: rgb(170, 169, 169);"></i> 微博传播分析</a></li>
+                                    <li><a href="javascript:daoHangClick('productsAnalysis.action','sjfx');" class="sjfxCount">
+                                        <i class="fa-nls-vs" style="color: rgb(170, 169, 169);"></i> 竞品分析</a></li>
+                                    <li>
+                                        <a href="javascript:daoHangClick('/view/commentAnalysis/commentAnalysis.action','sjfx');" class="sjfxCount">
+                                            <i class="fa-analysis-comment" style="color: rgb(170, 169, 169);"></i> 评论分析</a></li>
+                                
+                            </ul>
+                            <b class="caret-out"></b>
+                        </li>
+                    <li id="nav_yqjb" class="">
+                        <a data-toggle="dropdown" class="dropdown-toggle js-activated" href="#" onclick="daoHangClick('goBriefList.action','yqjb')">舆情简报
+                            <span class="fa-nav-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:daoHangClick('goBriefList.action','yqjb');">
+                                <i class="fa-report-lib" style="color: rgb(170, 169, 169);"></i> 我的简报库</a></li>
+
+                            <li class="dropdown-submenu collection-trigger">
+                                <a href="javascript:daoHangClick('querySourceList.action?sucaiFolderId=58174&amp;sucaiType=1&amp;jumpFlag=2','yqjb');">
+                                    <i class="fa-report-base" style="color: rgb(170, 169, 169);"></i> 素材管理</a>
+                                
+                                    <ul class="dropdown-menu">
+                                            <li>
+                                                    <a href="javascript:daoHangClick('querySourceList.action?sucaiFolderId=58174&amp;sucaiType=1&amp;jumpFlag=2','yqjb');">
+                                                        默认素材库 </a>
+                                            </li>
+                                    </ul>
+                                
+                            </li>
+                            <li><a href="javascript:daoHangClick('modelList.action','yqjb');">
+                                <i class="fa-report-tmpl" style="color: rgb(170, 169, 169);"></i> 模板管理</a></li>
+                            <li><a href="briefReportList.action" target="mframe">
+                                <i class="fa-report-old"></i> 旧版简报</a></li>
+
+                            <li class="dropdown-submenu collection-trigger">
+                                    <a href="javascript:daoHangClick('findFavoriteNews.action?keywordFolderId=37751&amp;type=2','yqjb');">
+                                        <i class="fa-report-collection"></i> 收藏夹
+                                        <span class="arrow"></span></a>
+                                    <ul class="dropdown-menu">
+                                         <li>
+                                           <a href="javascript:daoHangClick('findFavoriteNews.action?keywordFolderId=37751&amp;type=2','yqjb');">
+                                                    默认收藏夹 </a></li>
+                                    </ul>
+                            </li>
+                            <li class="dropdown-submenu"><a href="javascript:daoHangClick('guanchaYq.action?gcType=1','yqjb');">
+                                <i class="fa-report-observe"></i> 舆情观察
+                                <span class="arrow"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                     <a href="javascript:daoHangClick('guanchaYq.action?status=3&amp;gcType=1','yqjb');">舆情观察</a>
+                                   </li>
+                                </ul>
+                             </li>
+                        </ul>
+                        <b class="caret-out"></b>
+                    </li>
+            </ul>
+
+        </div>
+
+    </div>
 </div>
 <script>
       document.querySelector('#summaryTotal').innerText=Math.floor(3+Math.random()*12341)

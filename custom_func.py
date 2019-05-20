@@ -26,16 +26,19 @@ gdraw={
 gdurl={
 
 }
+gre_head=re.compile(r'<div class="header navbar navbar-inverse">[\W\w]*<div class="wrap1">'	,flags=re.IGNORECASE )
+
 gsLogin=F.read('./static/login.html')
 
 
 def custom_response_text_rewriter(raw_text, content_mime, remote_url):
     # F.dill_dump((raw_text, content_mime, remote_url),file=U.stime()+'  '+T.fileName(remote_url) )
-    raw_text = raw_text.replace('https://files.yqt365.com//logo/20170803092821201.jpg', 'mfyq_logo')
+    raw_text = raw_text.replace('https://files.yqt365.com//logo/20170803092821201.jpg', '/mfyq_logo')
     if 'nav pull-right' in raw_text:
-        for k,v in gdraw.items():
-            # raw_text=T.regexReplace(raw_text,k,F.read(v))
-            raw_text=T.regexReplace(raw_text,k,v)
+            raw_text=T.regexReplace(raw_text,
+                gre_head,
+                F.read('./static/head.html') )
+            # raw_text=T.regexReplace(raw_text,k,v)
 
         # 
     if remote_url.startswith('http://0731.mfyq.com.cn/log'):
