@@ -42,6 +42,7 @@ def _printr(output, other_inputs, print_type=PRINT_TYPE_INFO, timelevel=O_TIME_L
     :param timelevel: int
     :param is_beep: bool
     """
+    return None
     # filter extra output destinations meet the limit
     suitable_extra_dest = [x['dest'] for x in extra_print_dests if x['important_level'] <= important_level]
 
