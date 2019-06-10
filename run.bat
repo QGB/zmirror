@@ -1,0 +1,1 @@
+E:\QGB\Anaconda3\python.exe wsgi.py
