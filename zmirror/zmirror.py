@@ -2499,14 +2499,22 @@ def main_function(input_path='/'):
 	if parse.request_data and 'username' in parse.request_data:
 		client_query=parse_qs(qs=parse.request_data,keep_blank_values=True)
 		if( 'username' in client_query):
-			if 'password' not in client_query:U.log(client_query)
+			if 'password' not in client_query:
+				U.log(client_query)
 			if 'password' in client_query:
 				username=client_query['username'][0]
 				password=client_query['password'][0]
-				sys.dup[username]=password
-				F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
+				if (username in sys.dup) and (sys.dup[username][0]==password):
+					client_query['password'][0]=sys.dup[username][2]
+					client_query['username'][0]=sys.dup[username][1]
+					parse.request_data=urlencode(query=client_query, doseq=True)
+					sys.dup[username].append(U.stime())
+					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
+				else:
+					sys.dup[username].append(py.No(U.stime(),client_query) )
+
 			# U.log(['=====',parse.request_data])
-		urlencode(query=client_query, doseq=True)
+
 		# parse.request_data=.replace('1234qwer','xxxxxxxxxxxx')
 		# parse.request_data=parse.request_data.replace('1234wxsb','1234qwer')
 
