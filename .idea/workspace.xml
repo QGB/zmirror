@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4d802c4-edb9-4070-aad2-018c83c921e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_func.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zmirror/zmirror.py" beforeDir="false" afterPath="$PROJECT_DIR$/zmirror/zmirror.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="2507" column="68" lean-forward="true" selection-start-line="2507" selection-start-column="68" selection-end-line="2507" selection-end-column="68" />
+            <state relative-caret-position="617">
+              <caret line="2514" column="70" lean-forward="true" selection-start-line="2514" selection-start-column="70" selection-end-line="2514" selection-end-column="70" />
               <folding>
                 <element signature="e#38#47#0" expanded="true" />
               </folding>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/custom_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="270">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -103,6 +104,8 @@
       <find>generate_our_response</find>
       <find>parse.</find>
       <find>parse_qs</find>
+      <find>F</find>
+      <find>zmirror.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,9 +115,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/zmirror/threadlocal.py" />
-        <option value="$PROJECT_DIR$/custom_func.py" />
         <option value="E:/QGB/babun/cygwin/bin/qgb/es.py" />
         <option value="E:/QGB/babun/cygwin/bin/qgb/N/__init__.py" />
+        <option value="$PROJECT_DIR$/custom_func.py" />
         <option value="$PROJECT_DIR$/zmirror/zmirror.py" />
       </list>
     </option>
@@ -202,13 +205,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custom_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/QGB/babun/cygwin/bin/qgb/es.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="643">
@@ -253,10 +249,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/custom_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="2507" column="68" lean-forward="true" selection-start-line="2507" selection-start-column="68" selection-end-line="2507" selection-end-column="68" />
+        <state relative-caret-position="617">
+          <caret line="2514" column="70" lean-forward="true" selection-start-line="2514" selection-start-column="70" selection-end-line="2514" selection-end-column="70" />
           <folding>
             <element signature="e#38#47#0" expanded="true" />
           </folding>

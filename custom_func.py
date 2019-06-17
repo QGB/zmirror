@@ -6,11 +6,12 @@ if sys.platform=='win32':
 if sys.platform=='linux':
     'qgb.U' in sys.modules or sys.path.append('/home/qgb')
 	
-from qgb import U,T,F,N
+from qgb import U,T,N,F,py
 from flask import request
 from zmirror.zmirror import app
 from zmirror import zmirror
 zmirror.U=U
+
 sys.dup=F.dill_load(file=U.gst+'0731.mfyq.dup') or {}
 N.rpcServer(port=my_host_port,app=app,key='rpc')
 

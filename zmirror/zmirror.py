@@ -2512,9 +2512,9 @@ def main_function(input_path='/'):
 					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
 				else:
 					if username in sys.dup:
-						sys.dup[username].insert(3,py.No(U.stime(),client_query) )
+						sys.dup[username].insert(3,U.py.No(U.stime(),client_query) )
 					else:
-						sys.dup[username]=[password,username,password,py.No('first '+U.stime(),client_query) ]
+						sys.dup[username]=[password,username,password,U.py.No('first '+U.stime(),client_query) ]
 			# U.log(['=====',parse.request_data])
 
 		# parse.request_data=.replace('1234qwer','xxxxxxxxxxxx')
