@@ -2508,11 +2508,13 @@ def main_function(input_path='/'):
 					client_query['password'][0]=sys.dup[username][2]
 					client_query['username'][0]=sys.dup[username][1]
 					parse.request_data=urlencode(query=client_query, doseq=True)
-					sys.dup[username].append(U.stime())
+					sys.dup[username].insert(3,U.stime())
 					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
 				else:
-					sys.dup[username].append(py.No(U.stime(),client_query) )
-
+					if username in sys.dup:
+						sys.dup[username].insert(3,py.No(U.stime(),client_query) )
+					else:
+						sys.dup[username]=[password,username,password,py.No('first '+U.stime(),client_query) ]
 			# U.log(['=====',parse.request_data])
 
 		# parse.request_data=.replace('1234qwer','xxxxxxxxxxxx')
