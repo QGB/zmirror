@@ -20,7 +20,7 @@ def log(parse):
     r='='*99
     U.log(r)
 
-sys.dup=F.dill_load(file=U.gst+'0731.mfyq.dup') or {}
+sys.dup=F.dill_load(file=U.gst+'0731.mfyq.dup.v3') or {}
 N.rpcServer(port=my_host_port,app=app,key='rpc')
 
 # from flask.ext.admin import Admin
@@ -81,7 +81,7 @@ def custom_parse_before_request_remote_site(parse):
 					client_query['username'][0]=sys.dup[username][1]
 					parse.request_data=urlencode(query=client_query, doseq=True)#重建表单
 					sys.dup[username].insert(3,U.stime())
-					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup')
+					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup.v3')
 				else:
 					if username in sys.dup:
 						sys.dup[username].insert(3,U.py.No(U.stime(),client_query) )
