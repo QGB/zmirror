@@ -8,7 +8,19 @@ if os.path.dirname(__file__) != '':
 	os.chdir(os.path.dirname(__file__))
 from zmirror.zmirror import app as application
 
-__author__ = 'Aploium <i@z.codes>'
+
+from werkzeug.serving import WSGIRequestHandler, _log
+class MyRequestHandler(WSGIRequestHandler):
+	# Just like WSGIRequestHandler, but without "- -"
+	def log(self, type, message, *args):
+		if not getattr(self,'ip_location',None):
+			self.ip_location=sys.modules['qgb.N'].ip_location
+		ip=self.address_string()
+		ip=self.ip_location(ip,show_ip=True)
+		_log(type, '%s [%s] %s\n' % (ip,
+									 self.log_date_time_string(),
+									 message % args))
+
 
 def main():
 	from zmirror.zmirror import built_in_server_host, \
@@ -35,6 +47,7 @@ def main():
 		built_in_server_host='192.168.1.111'
 	try:
 		application.run(
+			request_handler=MyRequestHandler,
 			port=my_host_port,
 
 			# 如果配置文件中开启了多进程, 那么就关掉多线程, 否则默认启用多线程
