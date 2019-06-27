@@ -11,9 +11,10 @@ from zmirror.zmirror import app as application
 __author__ = 'Aploium <i@z.codes>'
 
 def main():
-	from zmirror.zmirror import my_host_port, built_in_server_host, \
+	from zmirror.zmirror import built_in_server_host, \
 		built_in_server_debug, built_in_server_extra_params, warnprint, \
-		errprint
+		errprint #my_host_port,
+	from config import my_host_port
 
 	warnprint("You may directly running zmirror, which is NOT recommend for PRODUCTION environment.\n"
 			  "Please deploy it using Apache,You can find a deploy tutorial here:\n"
@@ -21,8 +22,6 @@ def main():
 
 	if my_host_port is None:
 		my_host_port = 80
-		
-	my_host_port=10000
 	
 	if sys.platform=='linux':
 		key='/etc/letsencrypt/live/okfw.net/privkey.pem'
@@ -33,7 +32,6 @@ def main():
 		qgb=os.getenv('QGB') or 'E:/qgb/'
 		key=qgb+r'!RK\okfw.net\privkey.pem'
 		crt=qgb+r'!RK\okfw.net\cert.pem'
-		my_host_port+=1
 		built_in_server_host='192.168.1.111'
 	try:
 		application.run(

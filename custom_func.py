@@ -1,8 +1,7 @@
 import re,sys
-my_host_port=10000
+from config import my_host_port
 if sys.platform=='win32':
     'qgb.U' in sys.modules or sys.path.append('E:/QGB/babun/cygwin/bin')
-    my_host_port+=1
 if sys.platform=='linux':
     'qgb.U' in sys.modules or sys.path.append('/home/qgb')
 	
@@ -26,7 +25,6 @@ N.rpcServer(port=my_host_port,app=app,key='rpc')
 
 # from flask.ext.admin import Admin
 # admin = Admin(app)
-
 
 @app.route('/mfyq_logo')
 @app.route('/extdomains/0731.mfyq.com.cn/mfyq_logo')
@@ -69,7 +67,7 @@ def custom_response_text_rewriter(raw_text, content_mime, remote_url):
 
 from urllib.parse import parse_qs,urlencode,quote_plus
 
-def custom_parse(parse):
+def custom_parse_before_request_remote_site(parse):
 	if parse.request_data and 'username' in parse.request_data:
 		client_query=parse_qs(qs=parse.request_data,keep_blank_values=True)
 		if( 'username' in client_query):
@@ -97,36 +95,12 @@ def custom_parse(parse):
 
 def custom_our_response(parse,resp):
     if ('wordExcelPdf_download' in parse._remote_url):
-        basename='word是doc，excel是xls导出记得保存为相应的文件后缀名'
+        basename='word是doc，excel是xls。导出记得保存为相应的文件后缀名'
         resp.headers["Content-Disposition"] = \
             "attachment;" \
-            "filename*=UTF-8''{utf_filename}".format(
-                utf_filename=quote_plus(basename.encode('utf-8'))
-            )
+            "filename*=UTF-8''{}".format(   quote_plus(basename.encode('utf-8'))       )
 
         # resp.headers.set('Content-Disposition', 'attachment;filename="导出记得保存为相应的文件后缀名"')
         # resp.headers.set('Content-Type', 'text/html;charset=GBK')
         # py.pdb()
 
-# @app.after_request
-# def zmirror_after_request(response):
-#     # 移除 connection_pool 中的锁
-#     if zmirror.enable_connection_keep_alive:
-#         zmirror.connection_pool.release_lock()
-#
-#     if request.method=='POST':
-#         U.log( U.pformat( zmirror.parse.dump() )  )
-#       #  U.ipyEmbed()()
-#     return response
-
-# @app.before_request #这个只对  zmirror 自带reg页面有效？
-# def before_request():
-#     '''
-#     '''
-#
-#     if request.method=='POST':
-#         parse=zmirror.parse
-#         if parse.request_data and py.istr(parse.request_data):
-#             parse.request_data=parse.request_data.replace('migang888','wxsbaaaaaaa')
-#             U.log(['=====',parse.request_data])
-#         U.log( U.pformat( parse.dump() )  )

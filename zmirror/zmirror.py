@@ -2246,13 +2246,12 @@ def rewrite_client_request():
 
 # ################# Begin Flask After Request ################
 
-# @app.after_request
-# def zmirror_after_request(response):
-# 	# 移除 connection_pool 中的锁
-# 	if enable_connection_keep_alive:
-# 		connection_pool.release_lock()
-# 	# U.log( request.headers)	
-# 	return response
+@app.after_request
+def zmirror_after_request(response):
+	# 移除 connection_pool 中的锁
+	if enable_connection_keep_alive:
+		connection_pool.release_lock()
+	return response
 
 
 # ################# End Flask After Request ################
@@ -2499,8 +2498,8 @@ def main_function(input_path='/'):
 	parse.request_data, parse.request_data_encoding = prepare_client_request_data()
 
 	#qgb 拦截 表单数据
-	if getattr(custom_func,'custom_parse',None):
-		custom_func.custom_parse(parse)
+	if getattr(custom_func,'custom_parse_before_request_remote_site',None):
+		custom_func.custom_parse_before_request_remote_site(parse)
 
 	# 请求真正的远程服务器
 	# 并在返回404/500时进行 domain_guess 尝试

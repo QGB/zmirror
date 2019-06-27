@@ -4,7 +4,8 @@ import sys
 # ############## Local Domain Settings ##############
 my_host_name = 'mf.yq10000.cn'  #'okfw.net'
 my_host_scheme = 'http://'
-my_host_port = 10000  # None????????, ??????????, ?? 81
+
+my_host_port = 30000  # None????????, ??????????, ?? 81
 # built_in_server_extra_params={}	
 
 if sys.platform=='win32':my_host_port+=1
@@ -50,7 +51,7 @@ custom_text_rewriter_enable=True
 url_custom_redirect_enable = True
 url_custom_redirect_list = {
     # 这是一个方便的设置, 如果你访问 /wiki ,程序会自动重定向到后面这个长长的wiki首页
-    '/goMain.action': '/index.action',
-    '/yqMonitor': '/index.action',
+    # '/goMain.action': '/index.action',
+    # '/yqMonitor': '/index.action',
 }
 ###################################################
