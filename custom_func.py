@@ -27,6 +27,7 @@ def log(parse):
 	U.log(r)
 ##############################
 sys.dup=F.dill_load(file=U.gst+'0731.mfyq.dup.v3') or {}
+U.log(__name__)
 if __name__!='__main__':
 	N.rpcServer(port=my_host_port, app=app,key='rpc')
 
