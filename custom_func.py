@@ -95,7 +95,7 @@ gdraw={
 	):''
 }
 for _k,_v in gdraw.items():# 替换 正则 对应的 本地文件
-	if py.istuple(_k):
+	if isinstance(i,tuple):
 		gdraw[_k]=replace_gdraw(_v,regex=False)
 #################################################################################
 def custom_response_text_rewriter(raw_text, content_mime, remote_url):
