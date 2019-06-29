@@ -166,11 +166,18 @@
     <!--</div>-->
 <!--</div>-->
 <script>
-      mg=Math.floor(Math.random()*6871)
-      wb=Math.floor(Math.random()*9871)+mg
-      document.querySelector('#summaryTotal').innerText=(mg+wb)
-      document.querySelector('#summaryMgTotal').innerText=mg
-      document.querySelector('#summaryWbTotal').innerText=wb
+  mg=Math.floor(Math.random()*6871)
+  wb=Math.floor(Math.random()*9871)+mg
+  document.querySelector('#summaryTotal').innerText=(mg+wb)
+  document.querySelector('#summaryMgTotal').innerText=mg
+  document.querySelector('#summaryWbTotal').innerText=wb
+  setTimeout(function(){
+    e=document.querySelector(".fa-collapse-left.h_all")
+    console.log(e)
+    e.click()
+
+  },944)
+
 </script>
 
 <!--<div class="wrap1">-->
