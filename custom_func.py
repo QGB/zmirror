@@ -27,25 +27,26 @@ def log(parse):
 	U.log(r)
 ##############################
 sys.dup=F.dill_load(file=U.gst+'0731.mfyq.dup.v3') or {}
-N.rpcServer(port=my_host_port, app=app,key='rpc')
+if __name__!='__main__':
+	N.rpcServer(port=my_host_port, app=app,key='rpc')
 
-# from flask.ext.admin import Admin
-# admin = Admin(app)
-##############################
-gp=F.Path(__file__).absolute().parent.joinpath('static')
-@app.route('/extdomains/0731.mfyq.com.cn/static/<path:f>')
-@app.route('/static/<path:f>')
-def static_file(f='',*a,**ka):
-	p=gp.joinpath(f)
-	if f.endswith('.css'):
-		s=replace_gdraw(p.read_text(),regex=False)
+	# from flask.ext.admin import Admin
+	# admin = Admin(app)
+	##############################
+	gp=F.Path(__file__).absolute().parent.joinpath('static')
+	@app.route('/extdomains/0731.mfyq.com.cn/static/<path:f>')
+	@app.route('/static/<path:f>')
+	def static_file(f='',*a,**ka):
+		p=gp.joinpath(f)
+		if f.endswith('.css'):
+			s=replace_gdraw(p.read_text(),regex=False)
 
-		r=make_response(s)
-		r.headers['Content-Type'] = 'text/css'
-		return r
-	# U.log([gp,f,a,ka])
-	# joinpath 可以支持多层文件夹
-	return send_file(p.as_posix())
+			r=make_response(s)
+			r.headers['Content-Type'] = 'text/css'
+			return r
+		# U.log([gp,f,a,ka])
+		# joinpath 可以支持多层文件夹
+		return send_file(p.as_posix())
 
 ###########################################################################
 def replace_gdraw(raw_text,regex=True):
