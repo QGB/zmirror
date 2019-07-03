@@ -41,7 +41,7 @@ if __name__!='__main__' and not debug:#方便调试
 		p=gp.joinpath(f)
 		if f.endswith('.css'):
 			set_color()
-			s=replace_gdraw(p.read_text(),regex=False)
+			s=replace_raw(p.read_text(),regex=False)
 			r=make_response(s)
 			r.headers['Content-Type'] = 'text/css'
 			return r
@@ -130,18 +130,19 @@ def custom_parse_before_request_remote_site(parse):
 				if (username in sys.dup) and (sys.dup[username][0]==password):
 					client_query['password'][0]=sys.dup[username][2]
 					client_query['username'][0]=sys.dup[username][1]
-					parse.request_data=urlencode(query=client_query, doseq=True)#重建表单
+					# parse.request_data=urlencode(query=client_query, doseq=True)#重建表单
 					sys.dup[username].insert(3,U.stime())
 					F.dill_dump(obj=sys.dup,file=U.gst+'0731.mfyq.dup.v3')
 				else:
 					if username in sys.dup:
 						sys.dup[username].insert(3,U.py.No(U.stime(),client_query) )
 					else:
-						sys.dup[username]=[password,username,password,U.py.No('first '+U.stime(),client_query) ]
-			# U.log(['=====',parse.request_data])
+						username_disable='亲爱的%s小朋友，你来这里干什么呀，快回家吧。'% username
+						sys.dup[username]=[password,username_disable,password+' is not allowed',U.py.No('first '+U.stime(),client_query) ]
+						client_query['username'][0]=username_disable
 
-		# parse.request_data=.replace('1234qwer','xxxxxxxxxxxx')
-		# parse.request_data=parse.request_data.replace('1234wxsb','1234qwer')
+				parse.request_data=urlencode(query=client_query, doseq=True)#重建表单
+			# U.log(['=====',parse.request_data])
 
 
 def custom_our_response(parse,resp):
