@@ -51,6 +51,7 @@ if __name__!='__main__' and not debug:#方便调试
 #####  color
 gcolor='#7bff29ab'
 gcolor=U.mutableString('#7bff29ab')
+gcolor.set('#7bff29ab') # 生成 gcolor.last
 def set_color():
 	color='#'+''.join([U.random_choice('0123456789ABCDEF') for j in range(6)])+'AF'
 	# gcolor.set(color)
