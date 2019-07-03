@@ -22,6 +22,7 @@ class MyRequestHandler(WSGIRequestHandler):
 		ip=self.address_string()
 		ip=self.ip_location(ip,show_ip=True)
 		obj={
+'ip' : ip              ,
 'client_address ' : self.client_address              ,
 'command        ' : self.command                     ,
 'connection     ' : self.connection                  ,
