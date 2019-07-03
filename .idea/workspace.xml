@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d802c4-edb9-4070-aad2-018c83c921e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/yqt365-site.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/yqt365-site.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/head3.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/head3.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="2573" column="21" selection-start-line="2573" selection-start-column="21" selection-end-line="2573" selection-end-column="21" />
+            <state relative-caret-position="-6218">
+              <caret line="2344" column="62" lean-forward="true" selection-start-line="2344" selection-start-column="62" selection-end-line="2344" selection-end-column="62" />
               <folding>
                 <element signature="e#38#47#0" expanded="true" />
               </folding>
@@ -27,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/custom_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+            <state relative-caret-position="702">
+              <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -42,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/head.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+            <state>
+              <caret column="73" selection-start-column="73" selection-end-column="73" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -51,16 +54,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/head3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
+            <state relative-caret-position="432">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
               <folding>
-                <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/yqt365-site.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="645">
+              <caret line="17651" column="13" selection-start-line="17651" selection-start-column="13" selection-end-line="17651" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -101,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/zmirror/threadlocal.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="27">
-              <caret line="297" lean-forward="true" selection-start-line="297" selection-end-line="297" />
+              <caret line="297" selection-start-line="297" selection-end-line="297" />
               <folding>
                 <element signature="e#15#31#0" expanded="true" />
               </folding>
@@ -113,22 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>generate_our_response</find>
-      <find>parse.</find>
-      <find>parse_qs</find>
-      <find>F</find>
-      <find>custom_f</find>
-      <find>custom_parse</find>
-      <find>custom_fu</find>
-      <find>zmirror.</find>
-      <find>quote_plus</find>
-      <find>Disposition</find>
-      <find>remote_response</find>
-      <find>text_like_mime_keywords</find>
-      <find>.en</find>
-      <find>U.</find>
-      <find>my_host_port</find>
-      <find>0731.mfyq.dup</find>
       <find>_log(</find>
       <find>log</find>
       <find>log(</find>
@@ -143,9 +128,28 @@
       <find>custom_func</find>
       <find>site.mi</find>
       <find>uple</find>
+      <find>url(&quot;../</find>
+      <find>url(&quot;..]</find>
+      <find>url(&quot;</find>
+      <find>qgb</find>
+      <find>.site-menubar</find>
+      <find>site-menubar</find>
+      <find>240px</find>
+      <find>left: 240px;</find>
+      <find>margin-le</find>
+      <find>.page</find>
+      <find>.page</find>
+      <find>.page,</find>
+      <find />
+      <find>#7</find>
+      <find>#</find>
+      <find>#3f</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>\t</replace>
+      <replace />
+      <replace>url(&quot;https://cdn-files.yqt365.com/base/assets/images</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\QGB\Anaconda3\Lib\site-packages\werkzeug</dir>
@@ -164,10 +168,10 @@
         <option value="$PROJECT_DIR$/wsgi.py" />
         <option value="$PROJECT_DIR$/static/head.html" />
         <option value="$PROJECT_DIR$/static/login.html" />
-        <option value="$PROJECT_DIR$/static/css/yqt365-site.min.css" />
         <option value="$PROJECT_DIR$/zmirror/zmirror.py" />
-        <option value="$PROJECT_DIR$/custom_func.py" />
+        <option value="$PROJECT_DIR$/static/css/yqt365-site.min.css" />
         <option value="$PROJECT_DIR$/static/head3.html" />
+        <option value="$PROJECT_DIR$/custom_func.py" />
       </list>
     </option>
   </component>
@@ -255,10 +259,10 @@
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16280353" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16280353" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299595" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -436,7 +440,7 @@
     <entry file="file://$PROJECT_DIR$/zmirror/threadlocal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
-          <caret line="297" lean-forward="true" selection-start-line="297" selection-end-line="297" />
+          <caret line="297" selection-start-line="297" selection-end-line="297" />
           <folding>
             <element signature="e#15#31#0" expanded="true" />
           </folding>
@@ -453,55 +457,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/yqt365-site.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="2573" column="21" selection-start-line="2573" selection-start-column="21" selection-end-line="2573" selection-end-column="21" />
-          <folding>
-            <element signature="e#38#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+        <state>
+          <caret column="73" selection-start-column="73" selection-end-column="73" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custom_func.py">
+    <entry file="file://$PROJECT_DIR$/static/css/yqt365-site.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="645">
+          <caret line="17651" column="13" selection-start-line="17651" selection-start-column="13" selection-end-line="17651" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/head3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
+        <state relative-caret-position="432">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zmirror/zmirror.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6218">
+          <caret line="2344" column="62" lean-forward="true" selection-start-line="2344" selection-start-column="62" selection-end-line="2344" selection-end-column="62" />
+          <folding>
+            <element signature="e#38#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/custom_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

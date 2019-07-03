@@ -28,9 +28,9 @@ def log(parse):
 ##############################
 sys.dup=F.dill_load(file=U.gst+'0731.mfyq.dup.v3') or {}
 U.log(__name__)
-if __name__!='__main__':#方便调试
+debug=0
+if __name__!='__main__' and not debug:#方便调试
 	N.rpcServer(port=my_host_port, app=app,key='rpc')
-
 	# from flask.ext.admin import Admin
 	# admin = Admin(app)
 	##############################
@@ -40,14 +40,21 @@ if __name__!='__main__':#方便调试
 	def static_file(f='',*a,**ka):
 		p=gp.joinpath(f)
 		if f.endswith('.css'):
+			set_color()
 			s=replace_gdraw(p.read_text(),regex=False)
-
 			r=make_response(s)
 			r.headers['Content-Type'] = 'text/css'
 			return r
 		# U.log([gp,f,a,ka])
 		# joinpath 可以支持多层文件夹
 		return send_file(p.as_posix())
+#####  color
+gcolor='#7bff29ab'
+gcolor=U.mutableString('#7bff29ab')
+def set_color():
+	color='#'+''.join([U.random_choice('0123456789ABCDEF') for j in range(6)])+'AF'
+	# gcolor.set(color)
+set_color()
 
 ###########################################################################
 def replace_gdraw(raw_text,regex=True):
@@ -55,32 +62,31 @@ def replace_gdraw(raw_text,regex=True):
 		if len(i)==2 and isinstance(i,tuple):
 			if not regex:continue
 			if i[0] in raw_text:
-				raw_text=T.regexReplace(raw_text,i[1],v)
+				raw_text=T.regexReplace(raw_text,i[1],str(v))
 		else:
 			if py.istr(i):
-				raw_text=raw_text.replace(i,v)
+				raw_text=raw_text.replace(str(i),str(v))
 			else:
 				U.log(['unknow gdraw',i,v])
 	return raw_text
-gcolor='#7bff29ab'
+
 gdraw={
 	'https://files.yqt365.com//logo/20170803092821201.jpg': '/static/img/logo.png',
+	gcolor.last:gcolor,
 	'#3fc3e3':gcolor,#蓝
 	'#3FC3E3':gcolor,#蓝
 	'#fa830c':gcolor, #橙
-	'https://cdn-files.yqt365.com/base/global/vendor/self/picture-view/images/big.cur':'',
-	'https://cdn-files.yqt365.com/base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
-	'https://cdn-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
-	'https://cdn-a-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
-	'https://cdn-b-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
-	'https://cdn-c-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
-
-	# '.yqt365.com/base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
 
 
-	# ('.yqt365.com//base/assets/css/site.min.css',
-	# 	re.compile(r'https:\/\/[\w-]*.yqt365.com\/\/base\/assets\/css\/site.min.css', flags=re.IGNORECASE )
-	# ):'/static/css/yqt365-site.min.css',
+	# 'https://cdn-files.yqt365.com/base/global/vendor/self/picture-view/images/big.cur':'',
+	# 'https://cdn-files.yqt365.com/base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
+	# 'https://cdn-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
+	# 'https://cdn-a-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
+	# 'https://cdn-b-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
+	# 'https://cdn-c-files.yqt365.com//base/assets/css/site.min.css':'/static/css/yqt365-site.min.css',
+	('/base/assets/css/site.min.css',
+		re.compile(r'https:\/\/cdn[\w.\-\/]+?\/base\/assets\/css\/site.min.css', flags=re.IGNORECASE )
+	):'/static/css/yqt365-site.min.css',
 
 	("header navbar navbar-inverse",
 		re.compile(r'<div class="header navbar navbar-inverse">[\W\w]*<div class="wrap1">', flags=re.IGNORECASE )
@@ -115,7 +121,7 @@ def custom_parse_before_request_remote_site(parse):
 		if( 'username' in client_query):
 			if 'password' not in client_query:
 				U.log(client_query)
-			if 'password' in client_query:
+			else:
 				username=client_query['username'][0]
 				password=client_query['password'][0]
 				if (username in sys.dup) and (sys.dup[username][0]==password):
