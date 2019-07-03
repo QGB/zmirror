@@ -55,5 +55,5 @@ url_custom_redirect_list = {
     # '/yqMonitor': '/index.action',
 }
 ###################################################
-ipLocationList=['192.168.','127.0.0.1'
+ipLocationList=['192.168.','127.0.0.1',
     '湖南','云南','海南',]
