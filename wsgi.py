@@ -8,19 +8,37 @@ if os.path.dirname(__file__) != '':
 	os.chdir(os.path.dirname(__file__))
 from zmirror.zmirror import app as application
 
-
+from config import ipLocationList
 from werkzeug.serving import WSGIRequestHandler, _log
 class MyRequestHandler(WSGIRequestHandler):
 	# Just like WSGIRequestHandler, but without "- -"
 	def log(self, type, message, *args):
 		if not getattr(self,'ip_location',None):
 			self.ip_location=sys.modules['qgb.N'].ip_location
+			self.U=sys.modules['qgb.U']
+			self.F=sys.modules['qgb.F']
+			# globals()['F']=sys.modules['qgb.F']
+			# globals()['U']=sys.modules['qgb.U']
 		ip=self.address_string()
 		ip=self.ip_location(ip,show_ip=True)
+		obj={
+'client_address ' : self.client_address              ,
+'command        ' : self.command                     ,
+'connection     ' : self.connection                  ,
+'raw_requestline' : self.raw_requestline             ,
+'headers        ' : dict(self.headers)
+}
+		self.F.write('log/'+self.U.stime(),self.U.pformat(obj))
+		for i in ipLocationList:
+			if i in ip:
+				break
+		else:
+			raise Exception('ipLocation %s not allowed'%ip)
+		# from IPython import embed;embed()
 		_log(type, '%s [%s] %s\n' % (ip,
 									 self.log_date_time_string(),
 									 message % args))
-
+		return
 
 def main():
 	from zmirror.zmirror import built_in_server_host, \

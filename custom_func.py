@@ -51,14 +51,16 @@ if __name__!='__main__' and not debug:#方便调试
 #####  color
 gcolor='#7bff29ab'
 gcolor=U.mutableString('#7bff29ab')
-gcolor.set('#7bff29ab') # 生成 gcolor.last
+# gcolor.set('#7bff29ab') # 生成 gcolor.last
+gcolor_alpha='AF'
+gcolor_range='0123456789ABCDEF'
 def set_color():
-	color='#'+''.join([U.random_choice('0123456789ABCDEF') for j in range(6)])+'AF'
-	# gcolor.set(color)
-set_color()
+	color='#'+''.join([U.random_choice(gcolor_range) for j in range(6)])+gcolor_alpha
+	gcolor.set(color)
+set_color() # 生成 gcolor.last
 
 ###########################################################################
-def replace_gdraw(raw_text,regex=True):
+def replace_raw(raw_text,regex=True):
 	for i,v in gdraw.items():
 		if len(i)==2 and isinstance(i,tuple):
 			if not regex:continue
@@ -103,10 +105,10 @@ gdraw={
 }
 for _k,_v in gdraw.items():# 替换 正则 对应的 本地文件
 	if isinstance(_k,tuple):
-		gdraw[_k]=replace_gdraw(_v,regex=False)
+		gdraw[_k]=replace_raw(_v,regex=False)
 #################################################################################
 def custom_response_text_rewriter(raw_text, content_mime, remote_url):
-	raw_text=replace_gdraw(raw_text,regex=True)
+	raw_text=replace_raw(raw_text,regex=True)
 	if remote_url.startswith('http://0731.mfyq.com.cn/log'):
 		# if len(raw_text)>12345:
 		if '/dwr/interface/LoginDwr.js?v=' in raw_text:
